@@ -9,15 +9,15 @@ import static java.util.concurrent.TimeUnit.*;
 @UtilityClass
 public class TimeFormatter {
 
-    public static String formatTime(long executionTimeInNanos, TimeUnit targetUnit) {
+    public static String formatTime(long timeInNanos, TimeUnit targetUnit) {
         return switch (targetUnit) {
-            case NANOSECONDS -> executionTimeInNanos + " ns";
-            case MICROSECONDS -> MICROSECONDS.convert(executionTimeInNanos, NANOSECONDS) + " μs";
-            case MILLISECONDS -> MILLISECONDS.convert(executionTimeInNanos, NANOSECONDS) + " ms";
-            case SECONDS -> SECONDS.convert(executionTimeInNanos, NANOSECONDS) + " s";
-            case MINUTES -> MINUTES.convert(executionTimeInNanos, NANOSECONDS) + " min";
-            case HOURS -> HOURS.convert(executionTimeInNanos, NANOSECONDS) + " h";
-            case DAYS -> DAYS.convert(executionTimeInNanos, NANOSECONDS) + " d";
+            case NANOSECONDS -> timeInNanos + " ns";
+            case MICROSECONDS -> MICROSECONDS.convert(timeInNanos, NANOSECONDS) + " μs";
+            case MILLISECONDS -> MILLISECONDS.convert(timeInNanos, NANOSECONDS) + " ms";
+            case SECONDS -> SECONDS.convert(timeInNanos, NANOSECONDS) + " s";
+            case MINUTES -> MINUTES.convert(timeInNanos, NANOSECONDS) + " min";
+            case HOURS -> HOURS.convert(timeInNanos, NANOSECONDS) + " h";
+            case DAYS -> DAYS.convert(timeInNanos, NANOSECONDS) + " d";
         };
     }
 }
