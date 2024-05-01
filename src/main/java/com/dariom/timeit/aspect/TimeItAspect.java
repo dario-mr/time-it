@@ -7,12 +7,12 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-import static com.dariom.timeit.util.TimeFormatter.formatTime;
+import static com.dariom.timeit.aspect.TimeFormatter.formatTime;
 
 @Slf4j
 @Aspect
 @Component
-public class TimeItAspect {
+class TimeItAspect {
 
     @Around("@annotation(timeIt)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint, TimeIt timeIt) throws Throwable {

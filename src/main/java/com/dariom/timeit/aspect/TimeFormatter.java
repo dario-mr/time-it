@@ -1,4 +1,4 @@
-package com.dariom.timeit.util;
+package com.dariom.timeit.aspect;
 
 import lombok.experimental.UtilityClass;
 
@@ -9,7 +9,7 @@ import static java.util.concurrent.TimeUnit.*;
 @UtilityClass
 public class TimeFormatter {
 
-    public static String formatTime(long timeInNanos, TimeUnit targetUnit) {
+    static String formatTime(long timeInNanos, TimeUnit targetUnit) {
         return switch (targetUnit) {
             case NANOSECONDS -> timeInNanos + " ns";
             case MICROSECONDS -> MICROSECONDS.convert(timeInNanos, NANOSECONDS) + " μs";
