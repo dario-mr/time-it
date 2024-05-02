@@ -9,7 +9,7 @@ public class DemoService {
 
     @TimeIt
     @SneakyThrows
-    public void sleep(long sleepMs) {
+    public void run(long sleepMs) {
         Thread.sleep(sleepMs);
     }
 }
