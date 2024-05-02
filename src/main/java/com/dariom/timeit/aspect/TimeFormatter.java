@@ -9,6 +9,20 @@ import static java.util.concurrent.TimeUnit.*;
 @UtilityClass
 public class TimeFormatter {
 
+    /**
+     * Format time from nanoseconds to the target time unit.
+     * <p>
+     * Examples:
+     * <pre>{@code
+     * formatTime(111_222_333L, MILLISECONDS) -> "111 ms"
+     * formatTime(1_222_333_444L, SECONDS) -> "1 s"
+     * }</pre>
+     *
+     * @param timeInNanos Time to format, in nanoseconds
+     * @param targetUnit  Target time unit
+     * @return {@code String} formatted in the target time unit, followed by its symbol, according to the International
+     * System of Units
+     */
     static String formatTime(long timeInNanos, TimeUnit targetUnit) {
         return switch (targetUnit) {
             case NANOSECONDS -> timeInNanos + " ns";
