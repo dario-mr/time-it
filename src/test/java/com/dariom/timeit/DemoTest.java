@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class TimeItTest {
+public class DemoTest {
 
     @Resource
     private DemoService demoService;
 
     @Test
     void test() {
-        demoService.sleep(1000);
+        demoService.sleep(10);
     }
 }
