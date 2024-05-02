@@ -1,0 +1,2 @@
+# This tells the consumers of this library to import the configuration class, where component scanning is defined
+com.dariom.timeit.config.TimeItConfig
