@@ -1,4 +1,4 @@
-name: Test and Package
+name: Publish package
 
 on: [ push, pull_request ]
 
@@ -19,5 +19,7 @@ jobs:
           cache: 'maven'
           server-id: github
           settings-path: ${{ github.workspace }}
-      - name: Run tests and Package
-        run: mvn -B clean package
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
