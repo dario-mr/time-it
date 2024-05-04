@@ -1,6 +1,8 @@
-name: Build workflow
+name: Release workflow
 
-on: [ push, pull_request ]
+on:
+  release:
+    types: [ created ]
 
 jobs:
   build:
@@ -21,5 +23,7 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}
 
-      - name: Run tests
-        run: mvn --batch-mode test
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode -s $GITHUB_WORKSPACE/settings.xml deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
