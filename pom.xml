@@ -5,7 +5,7 @@
 
     <groupId>com.dariom</groupId>
     <artifactId>time-it</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>Time It</name>
     <description>Library to log the execution time in your Spring Boot components</description>
 
@@ -49,5 +49,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/dario-mr/time-it</url>
+        </repository>
+    </distributionManagement>
 
 </project>
