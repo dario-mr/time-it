@@ -5,7 +5,7 @@
 
     <groupId>io.github.dario-mr</groupId>
     <artifactId>time-it</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>Time It</name>
     <description>Library to log the execution time in your Spring Boot components</description>
