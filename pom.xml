@@ -3,20 +3,52 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dariom</groupId>
+    <groupId>io.github.dario-mr</groupId>
     <artifactId>time-it</artifactId>
     <version>1.0.0</version>
+
     <name>Time It</name>
     <description>Library to log the execution time in your Spring Boot components</description>
+    <url>https://github.com/dario-mr/time-it</url>
+
+    <licenses>
+        <license>
+            <name>GPL, Version 3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Dario Mr</name>
+            <email>dario.mr.github@gmail.com</email>
+            <organization>dario-mr</organization>
+            <organizationUrl>https://github.com/dario-mr</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/dario-mr/time-it.git</connection>
+        <developerConnection>scm:git:ssh://github.com:dario-mr/time-it.git</developerConnection>
+        <url>https://github.com/dario-mr/time-it/tree/master</url>
+    </scm>
 
     <properties>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- maven plugins -->
+        <maven-surefire.version>3.2.5</maven-surefire.version>
+        <maven-source.version>3.3.1</maven-source.version>
+        <maven-javadoc.version>3.6.3</maven-javadoc.version>
+        <maven-gpg.version>3.2.4</maven-gpg.version>
+        <nexus-staging-maven.version>1.6.13</nexus-staging-maven.version>
+
+        <!-- third party dependencies -->
         <spring-boot.version>3.2.5</spring-boot.version>
         <lombok.version>1.18.32</lombok.version>
-        <maven-surefire.version>3.2.5</maven-surefire.version>
     </properties>
 
     <dependencies>
@@ -47,14 +79,84 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire.version}</version>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${maven-gpg.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <keyname>0x52E8212E</keyname>
+                    <passphraseServerId>ossrh</passphraseServerId>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <distributionManagement>
+        <!-- GitHub Packages -->
+        <!--        <repository>-->
+        <!--            <id>github</id>-->
+        <!--            <name>GitHub Packages</name>-->
+        <!--            <url>https://maven.pkg.github.com/dario-mr/time-it</url>-->
+        <!--        </repository>-->
+
+        <!-- Maven Central -->
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/dario-mr/time-it</url>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 

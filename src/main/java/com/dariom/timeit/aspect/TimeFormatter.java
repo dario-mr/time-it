@@ -6,8 +6,11 @@ import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.*;
 
+/**
+ * Utility class for formatting time (expressed in nanoseconds) in the desired time unit.
+ */
 @UtilityClass
-public class TimeFormatter {
+class TimeFormatter {
 
     /**
      * Format time from nanoseconds to the target time unit.
