@@ -5,10 +5,13 @@
 
     <groupId>io.github.dario-mr</groupId>
     <artifactId>time-it</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <name>Time It</name>
-    <description>Library to log the execution time in your Spring Boot components</description>
+    <description>
+        Library to log the execution time of your methods in Spring Boot components.
+        For example usages, check the github page: https://github.com/dario-mr/time-it
+    </description>
     <url>https://github.com/dario-mr/time-it</url>
 
     <licenses>
@@ -72,6 +75,10 @@
         </dependency>
     </dependencies>
 
+    <!--
+    To deploy to Maven Central, run:
+    mvn clean deploy -P deploy-maven-central
+    -->
     <profiles>
         <profile>
             <id>deploy-maven-central</id>

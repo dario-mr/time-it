@@ -1,6 +1,6 @@
 # Time It!
 
-Lightweight yet comprehensive library to log execution time in your Spring Boot components.
+Lightweight yet comprehensive library to log the execution time of your methods in Spring Boot components.
 
 Relies on [slf4j](https://www.slf4j.org/api/index.html) for logging.
 
@@ -15,13 +15,22 @@ Relies on [slf4j](https://www.slf4j.org/api/index.html) for logging.
 
 ## Installation
 
-### Maven
+### Maven Central
 
-// TODO
+Get the latest version from [Maven Central](https://central.sonatype.com/artifact/io.github.dario-mr/time-it/overview).
+
+```
+<dependency>
+    <groupId>io.github.dario-mr</groupId>
+    <artifactId>time-it</artifactId>
+    <version>${latestVersion}</version>
+</dependency>
+```
 
 ### JAR
 
-You can generate the JAR yourself by running the following maven command from the root directory:
+Get the latest JAR from [Github Packages](https://github.com/dario-mr?tab=packages&repo_name=time-it), or generate your
+own with the maven command:
 
 ```
 mvn package
